@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TK On The Go helps MKU Parklands School of Law students with errands, shopping, pick-ups, drop-offs, and campus runs by WhatsApp.">
+  <title>TK On The Go | MKU Parklands Errands</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="icon-message" viewBox="0 0 24 24">
+      <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.12 4.2 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.66 2.8a2 2 0 0 1-.45 2.11L8.05 9.9a16 16 0 0 0 6.05 6.05l1.27-1.27a2 2 0 0 1 2.11-.45c.9.31 1.84.53 2.8.66A2 2 0 0 1 22 16.92z"></path>
+    </symbol>
+    <symbol id="icon-cart" viewBox="0 0 24 24">
+      <circle cx="8" cy="21" r="1"></circle>
+      <circle cx="19" cy="21" r="1"></circle>
+      <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+    </symbol>
+    <symbol id="icon-package" viewBox="0 0 24 24">
+      <path d="m7.5 4.27 9 5.15"></path>
+      <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+      <path d="m3.3 7 8.7 5 8.7-5"></path>
+      <path d="M12 22V12"></path>
+    </symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24">
+      <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"></path>
+      <path d="M14 2v6h6"></path>
+      <path d="M8 13h8"></path>
+      <path d="M8 17h6"></path>
+    </symbol>
+    <symbol id="icon-route" viewBox="0 0 24 24">
+      <circle cx="6" cy="19" r="3"></circle>
+      <path d="M9 19h8.5a3.5 3.5 0 0 0 0-7H6.5a3.5 3.5 0 0 1 0-7H15"></path>
+      <circle cx="18" cy="5" r="3"></circle>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 6v6l4 2"></path>
+    </symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24">
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 0 1 16 0z"></path>
+      <circle cx="12" cy="10" r="3"></circle>
+    </symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.8 17 5 19 5a1 1 0 0 1 1 1z"></path>
+      <path d="m9 12 2 2 4-4"></path>
+    </symbol>
+    <symbol id="icon-send" viewBox="0 0 24 24">
+      <path d="m22 2-7 20-4-9-9-4Z"></path>
+      <path d="M22 2 11 13"></path>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="M20 6 9 17l-5-5"></path>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24">
+      <path d="M5 12h14"></path>
+      <path d="M12 5v14"></path>
+    </symbol>
+  </svg>
+
+  <a class="skip-link" href="#booking">Skip to booking</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="TK On The Go home">
+        <span class="brand-mark">TK</span>
+        <span>On The Go</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" id="nav-whatsapp" href="https://wa.me/254742321784" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#icon-message"></use></svg>
+        WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-flyer" src="assets/kiarie.jpeg" alt="" aria-hidden="true">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <svg class="icon" aria-hidden="true"><use href="#icon-map-pin"></use></svg>
+            MKU Parklands School of Law
+          </p>
+          <h1 id="hero-title">TK On The Go</h1>
+          <p class="hero-lede">Errands, shopping, pick-ups, drop-offs, and quick campus runs handled by Theresa Kiarie.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="hero-whatsapp" href="https://wa.me/254742321784" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#icon-message"></use></svg>
+              WhatsApp Theresa
+            </a>
+            <a class="btn btn-secondary" href="#services">
+              <svg class="icon" aria-hidden="true"><use href="#icon-route"></use></svg>
+              View services
+            </a>
+          </div>
+          <div class="trust-row" aria-label="Service highlights">
+            <span><svg class="icon" aria-hidden="true"><use href="#icon-shield"></use></svg> Student focused</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#icon-clock"></use></svg> Quote on WhatsApp</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Proof of completion</span>
+          </div>
+        </div>
+
+        <form class="booking-panel" id="booking" aria-label="Errand booking form">
+          <div class="panel-heading">
+            <p class="eyebrow">Quick request</p>
+            <h2>Ask Theresa for a quote</h2>
+          </div>
+
+          <div class="quick-buttons" aria-label="Quick service choices">
+            <button type="button" data-service="Pick-up or drop-off">
+              <svg class="icon" aria-hidden="true"><use href="#icon-package"></use></svg>
+              Pick-up
+            </button>
+            <button type="button" data-service="Shopping run">
+              <svg class="icon" aria-hidden="true"><use href="#icon-cart"></use></svg>
+              Shopping
+            </button>
+            <button type="button" data-service="Campus errand">
+              <svg class="icon" aria-hidden="true"><use href="#icon-route"></use></svg>
+              Campus
+            </button>
+          </div>
+
+          <label for="service">Errand type</label>
+          <select id="service" name="service" required>
+            <option value="">Choose one</option>
+            <option>Pick-up or drop-off</option>
+            <option>Shopping run</option>
+            <option>Campus errand</option>
+            <option>Printing or document run</option>
+            <option>Custom errand</option>
+          </select>
+
+          <label for="location">Pickup or delivery point</label>
+          <input id="location" name="location" type="text" placeholder="Example: Parklands campus gate" required>
+
+          <label for="timing">When do you need it?</label>
+          <select id="timing" name="timing" required>
+            <option>As soon as possible</option>
+            <option>Today</option>
+            <option>Tomorrow</option>
+            <option>This week</option>
+            <option>I will confirm on WhatsApp</option>
+          </select>
+
+          <label for="details">Errand details</label>
+          <textarea id="details" name="details" rows="4" placeholder="Add the list, destination, budget, or any notes Theresa should know." required></textarea>
+
+          <button class="btn btn-primary submit-btn" type="submit">
+            <svg class="icon" aria-hidden="true"><use href="#icon-send"></use></svg>
+            Send request on WhatsApp
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="service-band" id="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Services</p>
+          <h2 id="services-title">Everyday runs around Parklands</h2>
+        </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#icon-package"></use></svg></span>
+            <h3>Pick-ups and drop-offs</h3>
+            <p>Documents, parcels, food orders, personal items, and quick handovers between campus, hostel, office, or nearby stops.</p>
+          </article>
+          <article class="service-card">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#icon-cart"></use></svg></span>
+            <h3>Shopping runs</h3>
+            <p>Stationery, snacks, essentials, small grocery lists, and planned purchases from nearby shops with receipt updates.</p>
+          </article>
+          <article class="service-card">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#icon-file"></use></svg></span>
+            <h3>Printing and documents</h3>
+            <p>Printing, photocopying, binding, document collection, and other school-day support within allowed campus rules.</p>
+          </article>
+          <article class="service-card">
+            <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#icon-route"></use></svg></span>
+            <h3>Campus errands</h3>
+            <p>Library runs, queue help, item collection, and quick moves when class, revision, or work has already filled the day.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-band" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <figure class="poster-frame">
+          <img src="assets/kiarie.jpeg" alt="TK On The Go flyer showing pick-ups, drop-offs, shopping, and campus errands.">
+        </figure>
+        <div class="about-copy">
+          <p class="eyebrow">Theresa Kiarie</p>
+          <h2 id="about-title">A simple errands service for busy law students</h2>
+          <p>TK On The Go is built for students who need a reliable extra pair of hands near MKU Parklands. Theresa keeps communication direct, confirms the task before moving, and shares updates so the errand stays clear from start to finish.</p>
+          <ul class="check-list">
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Clear quote before the run starts</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> WhatsApp updates during the errand</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#icon-check"></use></svg> Photo or receipt proof where needed</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-band" id="how" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">Fast to request, easy to track</h2>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-number">1</span>
+            <h3>Share the errand</h3>
+            <p>Send the task, location, timing, and any item list through WhatsApp.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">2</span>
+            <h3>Confirm the quote</h3>
+            <p>Theresa replies with availability, cost, and the expected completion time.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">3</span>
+            <h3>Get it done</h3>
+            <p>You receive updates, proof where needed, and a final delivery confirmation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="details-band" aria-labelledby="details-title">
+      <div class="container details-grid">
+        <div>
+          <p class="eyebrow">Service area</p>
+          <h2 id="details-title">Focused on MKU Parklands and nearby stops</h2>
+          <p>Best for small, practical errands around campus and the Parklands area. If the run is outside the usual route, Theresa can confirm whether it is possible before you commit.</p>
+        </div>
+        <div class="contact-card">
+          <span class="icon-badge"><svg class="icon" aria-hidden="true"><use href="#icon-phone"></use></svg></span>
+          <h3>Direct contact</h3>
+          <p>Theresa Kiarie</p>
+          <a href="tel:+254742321784">+254 742 321 784</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#top" aria-label="TK On The Go home">
+          <span class="brand-mark">TK</span>
+          <span>On The Go</span>
+        </a>
+        <p>Pick-ups, drop-offs, shopping, and campus errands for MKU Parklands School of Law.</p>
+      </div>
+      <a class="btn footer-cta" id="footer-whatsapp" href="https://wa.me/254742321784" target="_blank" rel="noopener">
+        <svg class="icon" aria-hidden="true"><use href="#icon-message"></use></svg>
+        Book on WhatsApp
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
