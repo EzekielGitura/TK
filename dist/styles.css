@@ -1,15 +1,16 @@
 :root {
   --primary: #C65D3D;
   --accent: #E8A33D;
-  --dark: #141414;
-  --panel: #1A1A1A;
-  --panel-soft: #202020;
-  --line: #2E2E2E;
+  --dark: #3E2C1C;
+  --light: #F4E9D8;
   --white: #FFFDF9;
-  --muted: #B8B2AA;
-  --muted-strong: #D8D1C7;
-  --green: #34533B;
-  --shadow: 0 28px 90px rgba(0, 0, 0, 0.36);
+  --gray: #7D6B5D;
+  --panel: rgba(62, 44, 28, 0.92);
+  --panel-soft: rgba(244, 233, 216, 0.08);
+  --line: rgba(244, 233, 216, 0.2);
+  --muted: rgba(244, 233, 216, 0.72);
+  --muted-strong: var(--light);
+  --shadow: 0 28px 90px rgba(62, 44, 28, 0.42);
 }
 
 * {
@@ -71,7 +72,7 @@ textarea {
   top: 16px;
   z-index: 1000;
   transform: translateY(-160%);
-  background: #F45A09;
+  background: var(--primary);
   color: var(--white);
   padding: 10px 14px;
   border-radius: 999px;
@@ -87,7 +88,7 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(22, 22, 22, 0.94);
+  background: rgba(62, 44, 28, 0.94);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
 }
@@ -128,7 +129,7 @@ textarea {
   width: 10px;
   height: 15px;
   border-radius: 999px;
-  background: #F45A09;
+  background: var(--primary);
   box-shadow: 0 -7px 0 -3px var(--accent);
 }
 
@@ -166,7 +167,7 @@ textarea {
   height: 2px;
   transform: scaleX(0);
   transform-origin: left;
-  background: #F45A09;
+  background: var(--primary);
   transition: transform 0.2s ease;
 }
 
@@ -204,7 +205,7 @@ textarea {
 
 .nav-cta,
 .btn-primary {
-  background: #F45A09;
+  background: var(--primary);
   color: var(--white);
 }
 
@@ -220,7 +221,7 @@ textarea {
 .nav-cta .icon,
 .btn-primary .icon {
   background: var(--dark);
-  color: #F45A09;
+  color: var(--accent);
 }
 
 .btn-outline {
@@ -230,7 +231,7 @@ textarea {
 }
 
 .btn-outline .icon {
-  background: #F45A09;
+  background: var(--accent);
   color: var(--dark);
 }
 
@@ -248,9 +249,9 @@ textarea {
   padding: clamp(84px, 11vw, 156px) 0 clamp(74px, 9vw, 118px);
   border-bottom: 1px solid var(--line);
   background:
-    radial-gradient(circle at 68% 28%, rgba(198, 93, 61, 0.12), transparent 28%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.015), transparent 44%),
-    var(--panel);
+    radial-gradient(circle at 68% 28%, rgba(198, 93, 61, 0.16), transparent 28%),
+    linear-gradient(90deg, rgba(244, 233, 216, 0.04), transparent 44%),
+    var(--dark);
 }
 
 .hero-grid {
@@ -308,9 +309,9 @@ textarea {
   border-radius: 54% 46% 48% 52%;
   box-shadow: var(--shadow);
   background:
-    linear-gradient(145deg, rgba(244, 90, 9, 0.16), transparent 42%),
-    radial-gradient(circle at 78% 24%, rgba(232, 163, 61, 0.16), transparent 24%),
-    #171717;
+    linear-gradient(145deg, rgba(198, 93, 61, 0.22), transparent 42%),
+    radial-gradient(circle at 78% 24%, rgba(232, 163, 61, 0.2), transparent 24%),
+    var(--panel-soft);
   border: 1px solid rgba(255, 253, 249, 0.12);
 }
 
@@ -324,7 +325,7 @@ textarea {
 }
 
 .status-topline {
-  color: #F45A09;
+  color: var(--accent);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.22em;
@@ -368,7 +369,7 @@ textarea {
 }
 
 .status-list .icon {
-  color: #F45A09;
+  color: var(--accent);
 }
 
 .about-band,
@@ -414,7 +415,7 @@ textarea {
 .service-card h3,
 .step-card h3 {
   margin: 0;
-  color: #F45A09;
+  color: var(--primary);
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1.35rem, 2vw, 1.75rem);
   line-height: 1.05;
@@ -439,7 +440,7 @@ textarea {
 .booking-panel {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #171717;
+  background: rgba(62, 44, 28, 0.58);
 }
 
 .service-card {
@@ -451,7 +452,7 @@ textarea {
 .service-card:hover,
 .service-card:focus-within {
   transform: translateY(-6px);
-  border-color: rgba(244, 90, 9, 0.75);
+  border-color: rgba(198, 93, 61, 0.75);
 }
 
 .icon-badge {
@@ -462,12 +463,12 @@ textarea {
   margin-bottom: 30px;
   border: 1px solid var(--line);
   border-radius: 50%;
-  color: #F45A09;
+  color: var(--accent);
 }
 
 .process-band,
 .contact-band {
-  background: #151515;
+  background: var(--panel);
 }
 
 .steps-grid {
@@ -488,7 +489,7 @@ textarea {
   place-items: center;
   margin-bottom: 28px;
   border-radius: 50%;
-  background: #F45A09;
+  background: var(--primary);
   color: var(--white);
   font-weight: 800;
 }
@@ -537,7 +538,7 @@ textarea {
 .quick-buttons button:hover,
 .quick-buttons button:focus-visible,
 .quick-buttons button.is-selected {
-  border-color: #F45A09;
+  border-color: var(--primary);
   color: var(--white);
 }
 
@@ -554,7 +555,7 @@ textarea {
   min-height: 52px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #101010;
+  background: rgba(62, 44, 28, 0.7);
   color: var(--white);
   padding: 13px 15px;
   outline: none;
@@ -567,14 +568,14 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-  color: #77716C;
+  color: rgba(244, 233, 216, 0.52);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: #F45A09;
-  box-shadow: 0 0 0 4px rgba(244, 90, 9, 0.14);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(198, 93, 61, 0.18);
 }
 
 .submit-btn {
@@ -606,7 +607,7 @@ textarea:focus {
 
 .contact-list dt {
   margin-bottom: 6px;
-  color: #F45A09;
+  color: var(--accent);
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -651,7 +652,7 @@ textarea:focus {
 .site-footer {
   position: relative;
   padding: 82px 0 42px;
-  background: #151515;
+  background: var(--dark);
   color: var(--white);
 }
 
@@ -687,7 +688,7 @@ textarea:focus {
 .footer-links a:focus-visible,
 .footer-bottom a:hover,
 .footer-bottom a:focus-visible {
-  color: #F45A09;
+  color: var(--accent);
 }
 
 .footer-meta {
@@ -702,7 +703,7 @@ textarea:focus {
 }
 
 .footer-meta .icon {
-  color: #F45A09;
+  color: var(--accent);
 }
 
 .footer-bottom {
@@ -719,7 +720,7 @@ textarea:focus {
 }
 
 .footer-bottom a {
-  color: #F45A09;
+  color: var(--accent);
   text-decoration: none;
 }
 
