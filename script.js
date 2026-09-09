@@ -9,6 +9,7 @@ function setDirectLinks() {
   const links = [
     document.getElementById("nav-whatsapp"),
     document.getElementById("hero-whatsapp"),
+    document.getElementById("contact-whatsapp"),
     document.getElementById("footer-whatsapp")
   ];
 
@@ -85,3 +86,24 @@ function initBookingForm() {
 
 setDirectLinks();
 initBookingForm();
+
+const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
+const sections = navLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+
+function updateActiveNav() {
+  const current = sections
+    .map((section) => ({
+      section,
+      distance: Math.abs(section.getBoundingClientRect().top - 100)
+    }))
+    .sort((a, b) => a.distance - b.distance)[0]?.section;
+
+  navLinks.forEach((link) => {
+    link.classList.toggle("is-active", current && link.getAttribute("href") === `#${current.id}`);
+  });
+}
+
+window.addEventListener("scroll", updateActiveNav, { passive: true });
+updateActiveNav();
