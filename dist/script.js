@@ -1,5 +1,5 @@
 const phoneNumber = "254742321784";
-const baseMessage = "Hello Theresa, I would like to book an errand with TK On The Go.";
+const baseMessage = "Hello Theresa, I would like to book an errand with TK On The Go around Chamber Rd, Ngara.";
 
 function whatsappUrl(message) {
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
