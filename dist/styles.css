@@ -376,6 +376,7 @@ textarea {
 .service-band,
 .process-band,
 .booking-band,
+.faq-band,
 .contact-band {
   padding: clamp(86px, 11vw, 150px) 0;
   border-bottom: 1px solid var(--line);
@@ -467,6 +468,7 @@ textarea {
 }
 
 .process-band,
+.faq-band,
 .contact-band {
   background: var(--panel);
 }
@@ -589,6 +591,34 @@ textarea:focus {
   color: var(--muted-strong);
   font-size: 0.92rem;
   font-weight: 700;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: clamp(52px, 7vw, 86px);
+}
+
+.faq-item {
+  min-height: 210px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(62, 44, 28, 0.58);
+}
+
+.faq-item h3 {
+  margin: 0;
+  color: var(--accent);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  line-height: 1.05;
+}
+
+.faq-item p {
+  margin: 14px 0 0;
+  color: var(--muted);
 }
 
 .contact-layout {
@@ -814,7 +844,8 @@ textarea:focus {
 
   .about-points,
   .services-grid,
-  .steps-grid {
+  .steps-grid,
+  .faq-grid {
     grid-template-columns: 1fr;
   }
 
@@ -822,6 +853,7 @@ textarea:focus {
   .service-band,
   .process-band,
   .booking-band,
+  .faq-band,
   .contact-band {
     padding: 72px 0;
   }
