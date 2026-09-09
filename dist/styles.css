@@ -296,33 +296,79 @@ textarea {
   margin-top: 42px;
 }
 
-.hero-media {
+.hero-status {
   position: relative;
-  margin: 0;
   justify-self: center;
   width: min(510px, 100%);
   aspect-ratio: 0.82;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(36px, 5vw, 58px);
   border-radius: 54% 46% 48% 52%;
   box-shadow: var(--shadow);
-  background: #2A211D;
+  background:
+    linear-gradient(145deg, rgba(244, 90, 9, 0.16), transparent 42%),
+    radial-gradient(circle at 78% 24%, rgba(232, 163, 61, 0.16), transparent 24%),
+    #171717;
+  border: 1px solid rgba(255, 253, 249, 0.12);
 }
 
-.hero-media::before {
+.hero-status::before {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  border: 1px solid rgba(255, 253, 249, 0.14);
+  inset: 20px;
+  border: 1px solid rgba(255, 253, 249, 0.1);
   border-radius: inherit;
   pointer-events: none;
 }
 
-.hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.status-topline {
+  color: #F45A09;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.status-mark {
+  margin-top: 10px;
+  color: var(--white);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(7rem, 12vw, 12rem);
+  font-weight: 800;
+  line-height: 0.85;
+}
+
+.hero-status p {
+  max-width: 360px;
+  margin: 26px 0 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.status-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.status-list span {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted-strong);
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.status-list .icon {
+  color: #F45A09;
 }
 
 .about-band,
@@ -696,7 +742,7 @@ textarea:focus {
     max-width: 780px;
   }
 
-  .hero-media {
+  .hero-status {
     width: min(520px, 76vw);
   }
 
@@ -802,7 +848,7 @@ textarea:focus {
     display: none;
   }
 
-  .hero-media {
+  .hero-status {
     width: min(100%, 390px);
   }
 }
