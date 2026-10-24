@@ -1,0 +1,7 @@
+.git/
+.trunk/
+.vercel/
+.openai/
+node_modules/
+*.tmp
+*.zip

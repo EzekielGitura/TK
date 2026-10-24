@@ -1,109 +1,70 @@
-const phoneNumber = "254742321784";
-const baseMessage = "Hello T, I need help with an errand.";
+const phoneNumber = "254119331991";
+const baseMessage = "Hello T, I would like to book an errand with TK On The Go.";
 
 function whatsappUrl(message) {
   return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 }
 
-function setDirectLinks() {
-  const links = [
-    document.getElementById("nav-whatsapp"),
-    document.getElementById("hero-whatsapp"),
-    document.getElementById("contact-whatsapp"),
-    document.getElementById("footer-whatsapp")
-  ];
+document.querySelectorAll("[data-whatsapp]").forEach((link) => {
+  const message = link.dataset.service
+    ? `Hello T, I need help with ${link.dataset.service.toLowerCase()}.`
+    : baseMessage;
+  link.href = whatsappUrl(message);
+});
 
-  links.forEach((link) => {
-    if (link) {
-      link.href = whatsappUrl(baseMessage);
-    }
-  });
-}
+const header = document.getElementById("site-header");
+const menuToggle = document.getElementById("menu-toggle");
+const navigation = document.getElementById("site-navigation");
 
-function setSelectedQuickButton(selectedButton) {
-  document.querySelectorAll("[data-service]").forEach((button) => {
-    button.classList.toggle("is-selected", button === selectedButton);
-  });
-}
+if (header && menuToggle && navigation) {
+  menuToggle.hidden = false;
+  navigation.dataset.enhanced = "true";
 
-function buildRequestMessage(form) {
-  const formData = new FormData(form);
-  const service = formData.get("service");
-  const location = formData.get("location");
-  const timing = formData.get("timing");
-  const details = formData.get("details");
-
-  return [
-    baseMessage,
-    "",
-    `Service: ${service}`,
-    `Pickup or delivery point: ${location}`,
-    `Timing: ${timing}`,
-    `Details: ${details}`,
-    "",
-    "Please let me know your availability and quote."
-  ].join("\n");
-}
-
-function initBookingForm() {
-  const form = document.getElementById("booking");
-  const serviceSelect = document.getElementById("service");
-  const detailsField = document.getElementById("details");
-  const status = document.getElementById("form-status");
-
-  if (!form || !serviceSelect || !detailsField) {
-    return;
+  function closeMenu() {
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open menu");
+    menuToggle.title = "Open menu";
+    navigation.classList.remove("is-open");
   }
 
-  document.querySelectorAll("[data-service]").forEach((button) => {
-    button.addEventListener("click", () => {
-      serviceSelect.value = button.dataset.service;
-      setSelectedQuickButton(button);
-      detailsField.focus();
-    });
+  menuToggle.addEventListener("click", () => {
+    const open = menuToggle.getAttribute("aria-expanded") !== "true";
+    menuToggle.setAttribute("aria-expanded", String(open));
+    menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    menuToggle.title = open ? "Close menu" : "Open menu";
+    navigation.classList.toggle("is-open", open);
   });
 
-  serviceSelect.addEventListener("change", () => {
-    const matchingButton = Array.from(document.querySelectorAll("[data-service]"))
-      .find((button) => button.dataset.service === serviceSelect.value);
-    setSelectedQuickButton(matchingButton);
-  });
-
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    if (!form.reportValidity()) {
-      return;
+  navigation.addEventListener("click", (event) => {
+    if (event.target.closest("a")) {
+      closeMenu();
     }
+  });
 
-    if (status) {
-      status.textContent = "Opening WhatsApp with your request.";
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+      menuToggle.focus();
     }
-
-    window.open(whatsappUrl(buildRequestMessage(form)), "_blank", "noopener");
   });
-}
 
-setDirectLinks();
-initBookingForm();
-
-const navLinks = Array.from(document.querySelectorAll(".nav-links a"));
-const sections = navLinks
-  .map((link) => document.querySelector(link.getAttribute("href")))
-  .filter(Boolean);
-
-function updateActiveNav() {
-  const current = sections
-    .map((section) => ({
-      section,
-      distance: Math.abs(section.getBoundingClientRect().top - 100)
-    }))
-    .sort((a, b) => a.distance - b.distance)[0]?.section;
-
-  navLinks.forEach((link) => {
-    link.classList.toggle("is-active", current && link.getAttribute("href") === `#${current.id}`);
+  document.addEventListener("click", (event) => {
+    if (!header.contains(event.target)) {
+      closeMenu();
+    }
   });
-}
 
-window.addEventListener("scroll", updateActiveNav, { passive: true });
-updateActiveNav();
+  const desktopLayout = window.matchMedia("(min-width: 901px)");
+  if (desktopLayout.addEventListener) {
+    desktopLayout.addEventListener("change", closeMenu);
+  } else {
+    desktopLayout.addListener(closeMenu);
+  }
+
+  function updateHeader() {
+    header.classList.toggle("is-scrolled", window.scrollY > 12);
+  }
+
+  window.addEventListener("scroll", updateHeader, { passive: true });
+  updateHeader();
+}
